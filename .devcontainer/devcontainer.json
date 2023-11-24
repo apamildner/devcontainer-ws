@@ -1,0 +1,41 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+	"name": "Node.js & PostgreSQL",
+	//"dockerComposeFile": "docker-compose.yml",
+	
+	// Important - this is the context that VS code will run in
+	"service": "app",
+	// localWorkspaceFolderBasename is the folder where the .devContainer folder is located,
+	// and will be mounted into the docker image.
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"build": {
+	  "dockerfile": "Dockerfile"
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {
+				"editor.tabCompletion": "on"
+			},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker"
+			]
+			
+		}
+	},
+	"postCreateCommand":["npm","install"],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or with the host.
+	"forwardPorts": [3000]
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
