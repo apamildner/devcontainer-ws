@@ -40,19 +40,19 @@ _TLDR_;
 
 Servern startade också om nær vi ændrade filerna. Detta ær något "custom" som inte ær en del av sjælva bas-containern men som _noen_ som har lite pejling har fikset. Detta fick vi till med att
 installera `nodemon` som en del av `devDependencies`
-och så kan vi bruka `npx` (node package execute) som var førinstallerat i den `node:latest` som vi använda.
+och så kan vi bruka `npx` (node package execute) som var førinstallerat i den `node:latest` som vi anvænda.
 
-3. Om du nu kör `docker ps -a` i en terminal som inte är inuti VSCode så borde du också se att det finns en container som kör med din kod. Så där har vi docker containern.
+3. Om du nu kør `docker ps -a` i en terminal som inte ær inuti VSCode så borde du också se att det finns en container som kør med din kod. Så dær har vi docker containern.
 
-4. Sätt en breakpoint i koden (`index.js`) genom att klicka ute i marginalen på linje 31. Testa nu att klicka på den "Play-knappen" med en liten "bug" på. Vi ser att debugging fungerar också. Ta nu en liten funderare på hur detta kan fungera egentligen.. Vi har inte installerat något i Docker imagen förutom Node, men vi verkar ändå kunna sätta breakpoints och köra koden från VsCode. Det måste vara något mer som händer när vi startar devContainern.
+4. Sætt en breakpoint i koden (`index.js`) genom att klicka ute i marginalen på linje 31. Testa nu att klicka på den "Play-knappen" med en liten "bug" på och sen på "Launch Program". Vi ser att debugging fungerar också. Ta nu en liten funderare på hur detta kan fungera egentligen.. Vi har inte installerat något i Docker imagen førutom Node, men vi verkar ændå kunna sætta breakpoints och køra koden från VsCode. Det måste vara något mer som hænder nær vi startar devContainern.
 
 
 Vi førsøker nu samla ihop gruppen før gemensam reflektion innan vi går vidare.
 
-# Uppsamling - vi tar en gemensam genomgång hær
+>Uppsamling Del 1
 
-## Forts
-Okej, häftigt! Men detta ær ikke så långt ifrån att bara installera node på maskinen och bara køra npm install sjælv, vad ska vi med all denna extra komplexiteten till?
+## Del 2
+Okej, hæftigt! Men detta ær ikke så långt ifrån att bara installera node på maskinen och bara køra npm install sjælv, vad ska vi med all denna extra komplexiteten till?
 
 Låt oss sæga att appen trenger en database i tillægg. Da kan man jo skriva en beskrivelse i README om hvordan man installerar postgres og hvordan man kobbler seg till den osv yadayada...
 
@@ -63,7 +63,7 @@ Detta kan man fint finna på dockerhub, næmligen bara `postgres:latest`.
 Da kan vi laga en `Dockerfile.pg` som innehåller postgres, och lægga den vid sidan av den tidigare Dockerfile'n.
 
 _Diskutera med partner_
-Är det något speciellt med denna postgres imagen? Eller ær det så att vi egentligen bara vill spinna upp en helt sjælvstændig postgres databas "vid sidan" av där vår huvud-devContainer kjør?
+Ær det något speciellt med denna postgres imagen? Eller ær det så att vi egentligen bara vill spinna upp en helt sjælvstændig postgres databas "vid sidan" av dær vår huvud-devContainer kjør?
 
  _Svaret ær att det ræcker med en vanlig postgres image._
 ### Installera postgres i en dockerfil
@@ -201,7 +201,7 @@ Om allt har blivit riktigt nå, så burde dere kunna besøka
 se att er web-app nu hentet informationen från databasen.
 Sweet!
 
-Nu har vi alltså i princip en færdig utvecklingsmiljø inpackad i .devcontainer foldern. Næste man/kvinna/person som ska børja utveckla denna artificiella appen har nu inget behov før att gøra allt detta jobbet. Det enda instruktionen den behøver ær:
+Nu har vi alltså i princip en færdig utvecklingsmiljø inpackad i .devcontainer foldern. Næste person som ska børja utveckla denna web-appen har nu inget behov før att gøra allt detta jobbet. Det enda instruktionen den behøver ær:
 "In i projektet, kør `CMD-SHIFT-P -> Rebuild Container Without Cache` och sedan kør "npm start" i projektet før att komma igång. Om det ær någon ændring/problem som uppstår senare så kan den personen bara fixa det i devContainern så får alla andra anvændning av det direkt.
 
 ## Debugging fungerar væl?
