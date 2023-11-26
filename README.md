@@ -89,9 +89,9 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Inserting sample data into the 'users' table
-INSERT INTO users (name, email) VALUES ('Alice Smith', 'alice@example.com');
-INSERT INTO users (name, email) VALUES ('Bob Johnson', 'bob@example.com');
-INSERT INTO users (name, email) VALUES ('Carol Williams', 'carol@example.com');
+INSERT INTO users (name, email) VALUES ('Jule Nisse', 'julenisse@polar.no');
+INSERT INTO users (name, email) VALUES ('Jule Maja', 'julemaja@polar.no');
+INSERT INTO users (name, email) VALUES ('oh-deer', 'oh-deer@polar.no');
 
 ```
 Okej! Nu har vi en `Dockerfile.pg` samt lite grejer før att initializera databasen med någon SQL.
