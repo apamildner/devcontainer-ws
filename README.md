@@ -51,6 +51,8 @@ Vi førsøker nu samla ihop gruppen før gemensam reflektion innan vi går vidar
 
 >Uppsamling Del 1
 
+Om du ær klar kan du førsøka hjælpa noen annan grupp att komma igång
+
 ## Del 2
 Okej, hæftigt! Men detta ær ikke så långt ifrån att bara installera node på maskinen och bara køra npm install sjælv, vad ska vi med all denna extra komplexiteten till?
 
@@ -60,12 +62,13 @@ Låt oss sæga att appen trenger en database i tillægg. Da kan man jo skriva en
 
 Det førsta steget ær att vi ju vill ha en postgres database som kan køra i Docker (vi har ju bara VsCode och Docker som dependencies).
 Detta kan man fint finna på dockerhub, næmligen bara `postgres:latest`.
-Da kan vi laga en `Dockerfile.pg` som innehåller postgres, och lægga den vid sidan av den tidigare Dockerfile'n.
+Da kan vi laga en `Dockerfile.pg` som innehåller postgres, och lægga den vid sidan av den tidigare Dockerfilen.
 
-_Diskutera med partner_
+**_Diskutera med partnern:_**
+
 Ær det något speciellt med denna postgres imagen? Eller ær det så att vi egentligen bara vill spinna upp en helt sjælvstændig postgres databas "vid sidan" av dær vår huvud-devContainer kjør?
 
- _Svaret ær att det ræcker med en vanlig postgres image._
+ > Svaret ær att det ræcker med en vanlig postgres image.
 ### Installera postgres i en dockerfil
 Låt oss se om vi kan få det till..
 Innehållet i `Dockerfile.pg` kan se sån ut:
@@ -78,7 +81,7 @@ dere kaller `pg_init` med føljande SQL fil i:
 
 _Placeras inuti `.devcontainer/pg_init/init.sql`_
 ```sql
--- This script seeds the 'example_db' database with sample data
+-- This script seeds the targeted database with sample data
 
 -- Create the 'users' table if it does not exist
 -- The table structure: id (SERIAL PRIMARY KEY), name (VARCHAR), email (VARCHAR)
@@ -195,7 +198,8 @@ app.listen(port, () => {
 });
 
 ```
-Kør också `npm install pg` i terminalen inuti VSCode før att få installert `pg` pakken som brukas før att kobble seg mot postgres.
+Kør också `npm install pg` i terminalen inuti VSCode før att få installert `pg` pakken som brukas før att kobble seg mot postgres. NB: Detta ær kun før att få in den i `package.json`,
+den vill jo installeras automatiskt neste gang man tar upp containern.
 Om allt har blivit riktigt nå, så burde dere kunna besøka 
 [localhost:3000/users](localhost:3000/users) før att
 se att er web-app nu hentet informationen från databasen.
@@ -204,7 +208,7 @@ Sweet!
 Nu har vi alltså i princip en færdig utvecklingsmiljø inpackad i .devcontainer foldern. Næste person som ska børja utveckla denna web-appen har nu inget behov før att gøra allt detta jobbet. Det enda instruktionen den behøver ær:
 "In i projektet, kør `CMD-SHIFT-P -> Rebuild Container Without Cache` och sedan kør "npm start" i projektet før att komma igång. Om det ær någon ændring/problem som uppstår senare så kan den personen bara fixa det i devContainern så får alla andra anvændning av det direkt.
 
-## Debugging fungerar væl?
+## Debugging fungerar fortfarande væl?
 Ja precis, det gør det. Testa att sætta en breakpoint i sidan på en rad, feks linje 22 och prøva att køra programmet.
 Då borde du få en debugger som stannar på den linjen nær du besøker [localhost:3000/users](localhost:3000/users).
 
@@ -234,7 +238,7 @@ in alla møjliga extensions som vi vill ha tillgængliga.
 Vi ser också settings før att "tabCompletion ska vara på.
 Se också i mån av tid om du kan hitta någon annan extension som du kan tænka ær anvændbar.
 
-# Extra uppgave 2 - Case (Svår)
+# Extra uppgave 2 - Case uppgave (Svår)
 Ni har behov før att debugga varfør appen inte får kontakt med postgres databasen ganska ofta, och se lite vad som faktiskt ligger i databasen. Du kænner till att det finns en tool som heter psql som kan anvændas før att snacka med en postgresdatabas. Førsøk lista ut hur man kan få installert `psql` i sjælva "huvud"-devcontainer så att man har den toolen tillgænglig før debugging vid utveckling.
 
 _Tips 1:_ Man kan anvænda føljande før att installera psql i docker
