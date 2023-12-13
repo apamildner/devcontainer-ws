@@ -44,7 +44,7 @@ och så kan vi bruka `npx` (node package execute) som var førinstallerat i den 
 
 3. Om du nu kør `docker ps -a` i en terminal som inte ær inuti VSCode så borde du också se att det finns en container som kør med din kod. Så dær har vi docker containern.
 
-4. Sætt en breakpoint i koden (`index.js`) genom att klicka ute i marginalen på linje 31. Testa nu att klicka på den "Play-knappen" med en liten "bug" på och sen på "Launch Program". Vi ser att debugging fungerar också. Ta nu en liten funderare på hur detta kan fungera egentligen.. Vi har inte installerat något i Docker imagen førutom Node, men vi verkar ændå kunna sætta breakpoints och køra koden från VsCode. Det måste vara något mer som hænder nær vi startar devContainern.
+4. Sætt en breakpoint i koden (`index.js`) genom att klicka ute i marginalen på linje 31. Stopp nu først processen vi startade tidigare med "npm run start". Testa nu att klicka på den "Play-knappen" med en liten "bug" på och sen på "Launch Program". Vi ser att debugging fungerar också. Ta nu en liten funderare på hur detta kan fungera egentligen.. Vi har inte installerat något i Docker imagen førutom Node, men vi verkar ændå kunna sætta breakpoints och køra koden från VsCode. Det måste vara något mer som hænder nær vi startar devContainern.
 
 
 Vi førsøker nu samla ihop gruppen før gemensam reflektion innan vi går vidare.
