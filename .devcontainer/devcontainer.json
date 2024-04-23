@@ -8,9 +8,7 @@
 	// localWorkspaceFolderBasename is the folder where the .devContainer folder is located,
 	// and will be mounted into the docker image.
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"build": {
-	  "dockerfile": "Dockerfile"
-	},
+	"dockerComposeFile": "docker-compose.yml",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	"customizations": {

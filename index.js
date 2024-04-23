@@ -1,18 +1,19 @@
 const express = require('express');
+const { Pool } = require('pg');
 const app = express();
 const port = 3000;
 
 // Database connection configuration
-/* const pool = new Pool({
+ const pool = new Pool({
   user: 'postgres',    // replace with your database username
   host: 'localhost',
   database: 'postgres',
   password: 'postgres',  // replace with your database password
   port: 5432,
 });
- */
 
-/* app.get('/users', async (req, res) => {
+
+app.get('/users', async (req, res) => {
   
   try {
     const client = await pool.connect();
@@ -25,10 +26,9 @@ const port = 3000;
     res.status(500).send('Server error');
   }
 });
- */
 
 app.get('/', async (req, res) => {
-  res.status(200).send("Hello there!");
+  res.status(200).send("Hello there Arvid!");
 });
 
 app.listen(port, () => {
